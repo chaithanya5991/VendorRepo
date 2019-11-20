@@ -1,0 +1,90 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+ integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+<h1 class="d-flex justify-content-center">VIEW VENDOR DETAILS</h1>
+
+
+        <div class="container-fluid">
+        
+
+<nav class="navbar navbar-light bg-light">
+    <div>
+            <input type="submit" (click)="logout()" value="Logout"  [disabled]="form.invalid" class="btn btn-danger pull-right "  style="margin-top: 4%;margin-right: 6%;background-color:#12123b; "> 
+      
+        <!--input type="submit"  (click)="Logout()" value="logout" class="btn btn-info"--> 
+    </div>
+   
+     <input [(ngModel)]="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="width: 35%;margin-left:20%;">
+    
+     <button (click)="SearchDetails(search)" class="btn btn-dark my-2 my-sm-0" type="submit" style="margin-right:30%">Search</button>
+     <br>
+     <br>
+     <input type="button" class="btn btn-dark" (click)="newVendor()" value="Add Vendor" style="margin-left:90%;width: 16%;">
+     <!--input type="button" class="btn btn-dark" (click)="viewToday()" value="View Todays Appointment" style="margin-right:27%;margin-top:2%;"-->
+     <br>
+             
+      
+</nav>
+      <br>
+      <br> 
+    
+
+       
+<table class="table" border="1">
+    <thead class="thead-dark">
+    <tr>
+        <th>Vendor Id</th>
+        <th>Vendor Name</th>
+        <th>Address</th>
+        <th>Location</th>
+        <th>Service</th>
+        <th>Pincode</th>
+       
+        <th>Name</th>
+        <th>Department</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Action</th>
+    </tr></thead>
+    <tbody>
+    <tr class="table-default" *ngFor ="let view of objVendor| paginate:{itemsPerPage:5,currentPage:p}">
+            <td>{{view.vendorId}}</td>
+            <td>{{view.vendorName}}</td>
+            <td>{{view.address}}</td>
+            <td>{{view.location}}</td>
+            <td>{{view.service}}</td>
+            <td>{{view.pincode}}</td>
+            
+            <td>{{view.name}}</td>
+            <td>{{view.department}}</td>
+            <td>{{view.email}}</td>
+            <td>{{view.phone}}</td>
+            <td> <i class="fa fa-edit" (click)="edit(view.vendorId)" style="font-size:36px;color: rgb(14, 14, 78)"></i>&nbsp; <i class="fa fa-ban"  (click)="disableVendor(view)" style="font-size:36px;"></i>
+           
+        </tr>
+    </tbody>
+    
+</table>
+
+<pagination-controls (pageChange)="p =$event"></pagination-controls> 
+</div> 
+
+  
+    
+
+
+
+
+
+
+
+  
+    
+
+
+
+
+
+
+
+

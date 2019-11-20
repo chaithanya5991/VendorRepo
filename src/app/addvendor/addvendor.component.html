@@ -1,0 +1,71 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+ integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+
+<h1 class="d-flex justify-content-center">ADD VENDOR</h1>
+<nav class="navbar navbar-light bg-light">
+        <i class="fas fa-arrow-alt-circle-left" (click)="Goback()" style="font-size:36px;margin-left:20%;color:#12123b "></i>
+       
+</nav>
+<form #form="ngForm" autocomplete="off">
+        <div class="form-group">
+                <label>Vendor Name:</label>
+                <input type="text" [(ngModel)]="objVendor.vendorName" #vendorname="ngModel" name="vendorName" class="form-control"  placeholder="Vendor name" required>
+                <div class="validation-error" *ngIf="vendorname.invalid && vendorname.touched" style="color: red">Please match the requested format</div>
+     
+    
+                <br>
+                <label>Address:</label>
+                <input type="text" [(ngModel)]="objVendor.address" #Vendoraddress="ngModel" name="address" class="form-control"  placeholder="Address" required>
+                <div class="validation-error" *ngIf="Vendoraddress.invalid && Vendoraddress.touched" style="color: red">Please match the requested format</div>
+                <br>
+
+                Location: <select name="location" #Vendorlocation="ngModel" class="form-control" [(ngModel)]="objVendor.location" placeholder = "Location" required>
+                    <div class="validation-error" *ngIf="Vendorlocation.invalid && Vendorlocation.touched" style="color: red">Please match the requested format</div>  
+                    <option >trivandrum</option>
+                        <option>chennai</option>
+                        <option>bangalore</option>
+                    </select>
+                
+                <label>Service:</label>
+                <input type="text" [(ngModel)]="objVendor.service"  #Vendorservice="ngModel" name="service" class="form-control"  placeholder="Service" required>
+                <div class="validation-error" *ngIf="Vendorservice.invalid && Vendorservice.touched" style="color: red">Please match the requested format</div>
+                <br>
+               
+                <label>Pincode:</label>
+                <input type="number" [(ngModel)]="objVendor.pincode" #pin="ngModel" name="pincode" class="form-control"  placeholder="Pincode" pattern = "[0-9]{6}" required>
+                <div class="validation-error" *ngIf="pin.invalid && pin.touched" style="color: red">Please match the requested format</div>
+                <br>  
+                
+                <label>Name:</label>
+                <input type="text" [(ngModel)]="objVendor.name" #contactName="ngModel" name="name" class="form-control"  placeholder="Contact Name" required>
+                <div class="validation-error" *ngIf="contactName.invalid && contactName.touched" style="color: red">Please match the requested format</div>
+                <br>  
+
+                <label>Department:</label>
+                <input type="text" [(ngModel)]="objVendor.department" #vendorDept="ngModel" name="department" class="form-control"  placeholder="Department" required>
+                <div class="validation-error" *ngIf="vendorDept.invalid && vendorDept.touched" style="color: red">Please match the requested format</div>
+                <br>  
+
+                <label>Email:</label>
+                <input type="text" [(ngModel)]="objVendor.email" #vendorEmail="ngModel" name="email" class="form-control" pattern = "[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$" title = "Please match the requested format" placeholder="Email" required>
+                <div class="validation-error" *ngIf="vendorEmail.invalid && vendorEmail.touched" style="color: red">Please match the requested format</div>
+                <br> 
+                
+                <label>Phone:</label>
+                <input type="text" [(ngModel)]="objVendor.phone" #vendorPhone="ngModel" name="phone" class="form-control"  placeholder="Phone" pattern = "[0-9]{10}" required>
+                <div class="validation-error" *ngIf="vendorPhone.invalid && vendorPhone.touched" style="color: red">Please match the requested format</div>
+                <br> 
+             
+       
+    </div>
+       
+                   
+        <br><p style="margin-left:30%;color:red">* - All fields are mandatory</p>
+                  <div class="btn">
+                         <button class="btn btn-dark btn-block" [disabled]="form.invalid" (click)="save()" style="float: right;margin-right:50%" >SAVE</button>
+                         
+                         <!--input type="button" class="btn btn-success pull-right" (click)="save()" value="SAVE" style="float: right;margin-right:50%"-->
+                </div>
+                </form>        
+
